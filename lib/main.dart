@@ -4,6 +4,7 @@ import 'package:mini_course_player/core/routing/router_genretion_config.dart';
 import 'package:mini_course_player/styling/theme_data.dart';
 
 void main() {
+  // WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
