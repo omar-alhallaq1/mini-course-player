@@ -7,12 +7,12 @@ class CourseDetailsRepo {
   }) async {
     final prefs = await SharedPreferences.getInstance();
 
-    await prefs.setInt(courseId, position);
+    await prefs.setInt('course_position_$courseId', position);
   }
 
   Future<int> getLastPosition(String courseId) async {
     final prefs = await SharedPreferences.getInstance();
 
-    return prefs.getInt(courseId) ?? 0;
+    return prefs.getInt('course_position_$courseId') ?? 0;
   }
 }

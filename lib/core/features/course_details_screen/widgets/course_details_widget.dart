@@ -5,12 +5,14 @@ import 'package:mini_course_player/core/features/course_details_screen/widgets/v
 import 'package:mini_course_player/styling/app_colors.dart';
 import 'package:mini_course_player/styling/app_styles.dart';
 
-class CourseDetailsSection extends StatelessWidget {
+class CourseDetailsSection extends StatefulWidget {
   final String videoUrl;
   final String title;
   final String description;
   final int durationSeconds;
   final double progress;
+  final int lastPosition;
+  final Function(int position)? onPositionChanged;
 
   const CourseDetailsSection({
     super.key,
@@ -19,15 +21,37 @@ class CourseDetailsSection extends StatelessWidget {
     required this.description,
     required this.durationSeconds,
     required this.progress,
+    required this.lastPosition,
+    this.onPositionChanged,
   });
 
   @override
+  State<CourseDetailsSection> createState() => _CourseDetailsSectionState();
+}
+
+class _CourseDetailsSectionState extends State<CourseDetailsSection> {
+  bool _videoHasError = false;
+
+  @override
   Widget build(BuildContext context) {
-    final percentage = (progress * 100).toInt();
+    final currentProgress = _videoHasError ? 0.0 : widget.progress;
+    final percentage = (currentProgress * 100).toInt();
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        CourseVideoPlayer(videoUrl: videoUrl),
+        CourseVideoPlayer(
+          videoUrl: widget.videoUrl,
+          lastPosition: widget.lastPosition,
+          onPositionChanged: widget.onPositionChanged,
+          onVideoError: () {
+            if (mounted) {
+              setState(() {
+                _videoHasError = true;
+              });
+            }
+          },
+        ),
 
         Gap(24.h),
 
@@ -37,14 +61,14 @@ class CourseDetailsSection extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                title,
+                widget.title,
                 style: AppStyles.primaryheadlinestyle.copyWith(fontSize: 22.sp),
               ),
 
-              Gap(12),
+              Gap(12.h),
 
               Text(
-                description,
+                widget.description,
                 style: AppStyles.secondaryheadlinestyle.copyWith(
                   fontSize: 16.sp,
                 ),
@@ -54,10 +78,13 @@ class CourseDetailsSection extends StatelessWidget {
 
               Row(
                 children: [
-                  Icon(Icons.access_time_rounded, color: Color(0xFF4338CA)),
+                  const Icon(
+                    Icons.access_time_rounded,
+                    color: Color(0xFF4338CA),
+                  ),
                   Gap(8.w),
                   Text(
-                    _formatDuration(durationSeconds),
+                    _formatDuration(widget.durationSeconds),
                     style: AppStyles.black16w500style,
                   ),
                 ],
@@ -83,7 +110,7 @@ class CourseDetailsSection extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(8),
                 child: LinearProgressIndicator(
-                  value: progress,
+                  value: currentProgress,
                   minHeight: 8,
                   backgroundColor: AppColors.whitecolor,
                   color: AppColors.primarycolor,

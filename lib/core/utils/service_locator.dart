@@ -13,6 +13,5 @@ void setupServiceLocator() {
   // Cubit
   sl.registerFactory(() => CourseListCubit(sl<CourseRepo>()));
   sl.registerFactory(() => CourseDetailsCubit(sl<CourseDetailsRepo>()));
-
   sl.registerLazySingleton(() => CourseDetailsRepo());
 }

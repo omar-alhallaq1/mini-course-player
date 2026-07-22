@@ -140,13 +140,6 @@ class CustomCourseCard extends StatelessWidget {
                       ],
                     ),
                     Gap(16.h),
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        progressText,
-                        style: AppStyles.primary12meduemstyle,
-                      ),
-                    ),
                   ],
                 ),
               ),

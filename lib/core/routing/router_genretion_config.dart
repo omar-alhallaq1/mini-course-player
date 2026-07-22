@@ -28,7 +28,8 @@ class RouterGanretionConfig {
           final course = state.extra as CourseModel;
 
           return BlocProvider(
-            create: (_) => sl<CourseDetailsCubit>(),
+            create: (_) =>
+                sl<CourseDetailsCubit>()..loadLastPosition(course.id),
             child: CourseDetailsScreen(course: course),
           );
         },
