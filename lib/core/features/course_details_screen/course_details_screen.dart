@@ -3,11 +3,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mini_course_player/core/features/course_details_screen/widgets/course_details_widget.dart';
+import 'package:mini_course_player/core/features/course_list_screen/model/course_model.dart';
 import 'package:mini_course_player/core/wedgets/custom_back_button_widget.dart';
 import 'package:mini_course_player/styling/app_styles.dart';
 
 class CourseDetailsScreen extends StatelessWidget {
-  const CourseDetailsScreen({super.key});
+  final CourseModel course;
+
+  const CourseDetailsScreen({super.key, required this.course});
 
   @override
   Widget build(BuildContext context) {
@@ -37,18 +40,15 @@ class CourseDetailsScreen extends StatelessWidget {
                   ],
                 ),
               ),
+
               Gap(24.h),
+
               CourseDetailsSection(
-                videoUrl:
-                    "https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4",
-                title: 'Advanced Flutter Development',
-                description:
-                    "Deep dive into state management, custom "
-                    "animations and native integrations. Learn "
-                    "professional patterns used by top-tier mobile "
-                    "engineering teams",
-                durationSeconds: 20,
-                progress: 0.40,
+                videoUrl: course.videoUrl,
+                title: course.title,
+                description: course.description,
+                durationSeconds: course.durationSeconds,
+                progress: 0.0,
               ),
             ],
           ),

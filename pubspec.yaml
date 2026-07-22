@@ -47,6 +47,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   lottie: ^3.5.1
   chewie: ^1.14.1
+  animated_snack_bar: ^0.4.0
 
 dev_dependencies:
   flutter_test:
