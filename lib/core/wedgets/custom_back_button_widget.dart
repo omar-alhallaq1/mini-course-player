@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomBackButtonWidget extends StatelessWidget {
   final Widget icon;
@@ -10,17 +11,15 @@ class CustomBackButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap ?? () => Navigator.maybePop(context),
-      borderRadius: BorderRadius.circular(45),
+      customBorder: const CircleBorder(),
       child: Container(
-        width: 45,
-        height: 45,
+        width: 20.r,
+        height: 20.r,
         decoration: const BoxDecoration(
-          color: Color(0xFFF5F6F9), // الخلفية من صورة image_7e099e.png
+          color: Colors.transparent,
           shape: BoxShape.circle,
         ),
-        child: Center(
-          child: icon, // عرض الـ SVG مباشرة في المنتصف
-        ),
+        child: Center(child: icon),
       ),
     );
   }

@@ -1,4 +1,4 @@
 class AppRoutes {
-  static const String splashScreen = '/SplashScreen';
-  static const String onboardingScreen = '/onboardingScreen';
+  static const String courseListScreen = '/courseListScreen';
+  static const String courseDetailsScreen = '/cnboardingScreen';
 }
