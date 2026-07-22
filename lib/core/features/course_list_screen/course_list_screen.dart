@@ -44,9 +44,7 @@ class CourseListScreen extends StatelessWidget {
                 duration: '8h duration',
                 description: 'Master the basics of Python...',
                 progressText: '30% Completed',
-                onTap: () {
-                  // الأكشن عند الضغط
-                },
+                onTap: () {},
               ),
               CustomCourseCard(
                 imageUrl:
@@ -55,9 +53,7 @@ class CourseListScreen extends StatelessWidget {
                 duration: '8h duration',
                 description: 'Master the basics of Python...',
                 progressText: '30% Completed',
-                onTap: () {
-                  // الأكشن عند الضغط
-                },
+                onTap: () {},
               ),
               CustomCourseCard(
                 imageUrl:
@@ -66,9 +62,7 @@ class CourseListScreen extends StatelessWidget {
                 duration: '8h duration',
                 description: 'Master the basics of Python...',
                 progressText: '30% Completed',
-                onTap: () {
-                  // الأكشن عند الضغط
-                },
+                onTap: () {},
               ),
             ],
           ),

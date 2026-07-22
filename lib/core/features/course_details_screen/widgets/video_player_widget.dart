@@ -1,7 +1,6 @@
 import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:mini_course_player/core/wedgets/loding_widget.dart';
 import 'package:mini_course_player/styling/app_assets.dart';
 import 'package:mini_course_player/styling/app_colors.dart';
 import 'package:video_player/video_player.dart';

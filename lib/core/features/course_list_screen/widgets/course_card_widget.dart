@@ -48,7 +48,6 @@ class CustomCourseCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // الجزء العلوي: الصورة
               ClipRRect(
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(12.r),

@@ -17,7 +17,6 @@ class CourseDetailsScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // 1. قسم الـ Header العلوي (داخل Padding ليحتفظ بالمسافة)
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24).r,
                 child: Row(
@@ -39,8 +38,6 @@ class CourseDetailsScreen extends StatelessWidget {
                 ),
               ),
               Gap(24.h),
-
-              // 2. تفاصيل الكورس والفيديو (بدون Padding خارجي ليمتد الفيديو بكامل عرض الشاشة)
               CourseDetailsSection(
                 videoUrl:
                     "https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4",
@@ -51,7 +48,7 @@ class CourseDetailsScreen extends StatelessWidget {
                     "professional patterns used by top-tier mobile "
                     "engineering teams",
                 durationSeconds: 20,
-                progress: 0.40, // 👈 تعديل القيمة إلى 0.40 لتكون 40%
+                progress: 0.40,
               ),
             ],
           ),
