@@ -4,9 +4,9 @@ import 'package:mini_course_player/core/routing/router_genretion_config.dart';
 import 'package:mini_course_player/core/utils/service_locator.dart';
 import 'package:mini_course_player/styling/theme_data.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  setupServiceLocator();
+  await setupServiceLocator();
   runApp(const MyApp());
 }
 
