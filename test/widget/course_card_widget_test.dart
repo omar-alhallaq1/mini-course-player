@@ -24,6 +24,7 @@ void main() {
                 onTap: () {
                   tapped = true;
                 },
+                progressValue: 0.5,
               ),
             ),
           ),

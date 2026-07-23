@@ -17,6 +17,8 @@ Future<void> setupServiceLocator() async {
   sl.registerLazySingleton(() => CourseDetailsRepo(sl<SharedPreferences>()));
 
   // Cubit
-  sl.registerFactory(() => CourseListCubit(sl<CourseRepo>()));
+  sl.registerFactory(
+    () => CourseListCubit(sl<CourseRepo>(), sl<CourseDetailsRepo>()),
+  );
   sl.registerFactory(() => CourseDetailsCubit(sl<CourseDetailsRepo>()));
 }

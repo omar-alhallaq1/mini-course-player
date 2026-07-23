@@ -8,8 +8,9 @@ class CourseListLoading extends CourseListState {}
 
 class CourseListSuccess extends CourseListState {
   final List<CourseModel> courses;
+  final Map<String, double> progressMap;
 
-  CourseListSuccess(this.courses);
+  CourseListSuccess({required this.courses, this.progressMap = const {}});
 }
 
 class CourseListError extends CourseListState {

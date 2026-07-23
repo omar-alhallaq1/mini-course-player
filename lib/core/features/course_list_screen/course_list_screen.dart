@@ -63,24 +63,32 @@ class CourseListScreen extends StatelessWidget {
 
                     Gap(24.h),
 
-                    ...state.courses.map(
-                      (course) => Padding(
+                    ...state.courses.map((course) {
+                      final progress = state.progressMap[course.id] ?? 0.0;
+
+                      return Padding(
                         padding: EdgeInsets.only(bottom: 16.h),
                         child: CustomCourseCard(
                           imageUrl: course.thumbnailUrl,
                           title: course.title,
                           duration: "${course.durationSeconds}s duration",
                           description: course.description,
-                          progressText: "0% Completed",
-                          onTap: () {
-                            GoRouter.of(context).push(
+                          progressText:
+                              "${(progress * 100).round()}% Completed",
+                          progressValue: progress,
+                          onTap: () async {
+                            await GoRouter.of(context).push(
                               AppRoutes.courseDetailsScreen,
                               extra: course,
                             );
+
+                            if (context.mounted) {
+                              context.read<CourseListCubit>().fetchCourses();
+                            }
                           },
                         ),
-                      ),
-                    ),
+                      );
+                    }),
                   ],
                 ),
               ),

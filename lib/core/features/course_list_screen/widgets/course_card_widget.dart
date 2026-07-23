@@ -12,6 +12,7 @@ class CustomCourseCard extends StatelessWidget {
   final String imageUrl;
   final String title;
   final String duration;
+  final double progressValue;
   final String description;
   final String progressText;
   final VoidCallback? onTap;
@@ -21,6 +22,7 @@ class CustomCourseCard extends StatelessWidget {
     required this.imageUrl,
     required this.title,
     required this.duration,
+    required this.progressValue,
     required this.description,
     required this.progressText,
     this.onTap,
@@ -140,6 +142,12 @@ class CustomCourseCard extends StatelessWidget {
                       ],
                     ),
                     Gap(16.h),
+
+                    LinearProgressIndicator(
+                      value: progressValue,
+                      minHeight: 6.h,
+                      borderRadius: BorderRadius.circular(10.r),
+                    ),
                   ],
                 ),
               ),
