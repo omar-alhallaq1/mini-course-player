@@ -7,7 +7,7 @@
 <h1 align="center">Mini Course Player</h1>
 
 <p align="center">
-  A Flutter application built for the Almentor Flutter Mobile Intern Technical Assessment.
+  A Flutter application designed for seamless video playback and mini-course tracking.
 </p>
 
 <p align="center">
